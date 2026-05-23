@@ -17,9 +17,11 @@
             Мастер
         </label>
         <select
+            id="masterSelect"
             name="master_id"
             class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
         >
+            <option value="">Выберите мастера</option>
             @foreach($masters as $master)
                 <option
                     value="{{ $master->id }}"
@@ -39,7 +41,11 @@
 
         {{-- Existing client --}}
         <div id="existingClientBlock">
-            <select name="client_id" class="w-full rounded-lg border-gray-300">
+            <select
+                id="clientSelect"
+                name="client_id"
+                class="w-full rounded-lg border-gray-300"
+            >
                 <option value="">Выберите клиента</option>
                 @foreach($clients as $client)
                     <option value="{{ $client->id }}">
@@ -77,19 +83,7 @@
             >
 
         </div>
-        {{--<select
-            name="client_id"
-            class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-        >
-            @foreach($clients as $client)
-                <option
-                    value="{{ $client->id }}"
-                    @selected(old('client_id', $booking->client_id ?? '') == $client->id)
-                >
-                    {{ $client->name }} — {{ $client->phone }}
-                </option>
-            @endforeach
-        </select>--}}
+
     </div>
 
     <div>
@@ -197,7 +191,7 @@
 
 </div>
 
-<script>
+{{--<script>
 document.getElementById('toggleClientMode').addEventListener('click', function () {
 
     const existing = document.getElementById('existingClientBlock');
@@ -214,5 +208,42 @@ document.getElementById('toggleClientMode').addEventListener('click', function (
         existing.classList.remove('hidden');
         this.innerText = '+ Новый клиент';
     }
+});
+</script>--}}
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    new TomSelect('#masterSelect', {
+        create: false,
+        sortField: {
+            field: "text",
+            direction: "asc"
+        }
+    });
+
+    new TomSelect('#clientSelect', {
+        create: false,
+        searchField: ['text'],
+    });
+
+    document.getElementById('toggleClientMode').addEventListener('click', function () {
+
+        const existing = document.getElementById('existingClientBlock');
+        const newClient = document.getElementById('newClientBlock');
+
+        const isNew = newClient.classList.contains('hidden');
+
+        if (isNew) {
+            newClient.classList.remove('hidden');
+            existing.classList.add('hidden');
+            this.innerText = '← Выбрать существующего клиента';
+        } else {
+            newClient.classList.add('hidden');
+            existing.classList.remove('hidden');
+            this.innerText = '+ Новый клиент';
+        }
+    });
+
 });
 </script>

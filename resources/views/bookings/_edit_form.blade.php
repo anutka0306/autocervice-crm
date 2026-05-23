@@ -17,6 +17,7 @@
             Мастер
         </label>
         <select
+            id="masterSelect"
             name="master_id"
             class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
         >
@@ -38,6 +39,7 @@
     </label>
 
         <select
+            id="clientSelect"
             name="client_id"
             class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
         >
@@ -160,4 +162,22 @@
     </div>
 
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+    new TomSelect('#masterSelect', {
+        create: false,
+        sortField: {
+            field: "text",
+            direction: "asc"
+        }
+    });
+
+    new TomSelect('#clientSelect', {
+        create: false,
+        searchField: ['text'],
+    });
+    });
+</script>
 
