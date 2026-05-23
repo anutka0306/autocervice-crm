@@ -9,7 +9,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('login');
 });
 
 Route::get('/dashboard', function () {
@@ -28,17 +28,21 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 });
 
-Route::resource('clients', ClientController::class);
+Route::resource('clients', ClientController::class)->middleware(['auth']);
 
-Route::resource('bookings', BookingController::class);
+Route::resource('bookings', BookingController::class)->middleware(['auth']);
 
 Route::post('/bookings/{booking}/notes', [BookingNoteController::class, 'store'])
+    ->middleware(['auth'])
     ->name('bookings.notes.store');
 
 Route::delete('/notes/{note}', [BookingNoteController::class, 'destroy'])
+    ->middleware(['auth'])
     ->name('notes.destroy');
 
-Route::get('/dashboard/calendar', [CalendarController::class, 'index'])->name('calendar.index');
+Route::get('/dashboard/calendar', [CalendarController::class, 'index'])
+    ->middleware(['auth'])
+    ->name('calendar.index');
 
 Route::get(
     '/bookings/{booking}/sidebar',
