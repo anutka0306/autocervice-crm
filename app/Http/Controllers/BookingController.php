@@ -72,9 +72,12 @@ class BookingController extends Controller
 
         try {
             $service->create($validated);
+            $date = Carbon::parse($request->start_at)->toDateString();
 
             return redirect()
-                ->route('calendar.index')
+                ->route('calendar.index', [
+                    'date' => $date,
+                ])
                 ->with('success', 'Запись создана');
 
         } catch (\Exception $e) {
@@ -126,6 +129,7 @@ class BookingController extends Controller
      */
     public function update(Request $request, Booking $booking)
     {
+
         $validated = $request->validate([
             'client_id' => ['required', 'exists:clients,id'],
 
@@ -142,6 +146,8 @@ class BookingController extends Controller
         ]);
 
         $startAt = Carbon::parse($validated['start_at']);
+
+        $date = $startAt->toDateString();
 
         $duration = (int) $validated['duration'];
 
@@ -187,7 +193,9 @@ class BookingController extends Controller
         ]);
 
         return redirect()
-            ->route('calendar.index')
+            ->route('calendar.index', [
+                'date' => $date,
+            ])
             ->with('success', 'Запись обновлена');
     }
 
