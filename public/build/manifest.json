@@ -16,5 +16,11 @@
     "css": [
       "assets/app-C5R4WAJZ.css"
     ]
+  },
+  "resources/js/calendar.js": {
+    "file": "assets/calendar-DzFkS9rX.js",
+    "name": "calendar",
+    "src": "resources/js/calendar.js",
+    "isEntry": true
   }
 }
