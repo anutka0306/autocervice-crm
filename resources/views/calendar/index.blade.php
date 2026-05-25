@@ -13,7 +13,7 @@
 <x-app-layout>
 
     <div class="max-w-[1800px] mx-auto py-6 px-4">
-        <div class="w-full flex  items-center">
+        <div class="w-full flex flex-col sm:flex-row sm:items-center gap-3">
             <h1 class="text-2xl font-bold mb-6 me-6">
                 Календарь: {{ $date }}
             </h1>
@@ -26,12 +26,12 @@
             </a>
         </div>
 
-        <div class="flex gap-4 h-[calc(100vh-120px)]">
+        <div class="flex flex-col xl:flex-row gap-4">
 
 
             {{-- CALENDAR --}}
             <div
-                class="flex-1 bg-white rounded-2xl shadow overflow-auto"
+                class="flex-1 bg-white rounded-2xl shadow overflow-x-auto"
             >
 
                 <div class="flex min-w-[1200px]">
@@ -166,7 +166,7 @@
             </div>
 
             {{-- SIDEBAR --}}
-            <div class="space-y-6">
+            <div class="space-y-6 w-full xl:w-[340px] shrink-0">
 
                 {{-- MINI CALENDAR --}}
                 <button

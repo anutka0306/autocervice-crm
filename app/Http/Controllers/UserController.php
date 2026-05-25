@@ -43,6 +43,8 @@ class UserController extends Controller
 
         $validated['is_active'] = $request->boolean('is_active');
 
+        $validated['email_verified_at'] = now();
+
         User::create($validated);
 
         return redirect()

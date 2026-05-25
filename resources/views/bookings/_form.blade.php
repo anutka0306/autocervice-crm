@@ -191,25 +191,7 @@
 
 </div>
 
-{{--<script>
-document.getElementById('toggleClientMode').addEventListener('click', function () {
 
-    const existing = document.getElementById('existingClientBlock');
-    const newClient = document.getElementById('newClientBlock');
-
-    const isNew = newClient.classList.contains('hidden');
-
-    if (isNew) {
-        newClient.classList.remove('hidden');
-        existing.classList.add('hidden');
-        this.innerText = '← Выбрать существующего клиента';
-    } else {
-        newClient.classList.add('hidden');
-        existing.classList.remove('hidden');
-        this.innerText = '+ Новый клиент';
-    }
-});
-</script>--}}
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {

@@ -1,8 +1,8 @@
 <x-app-layout>
 
-    <div class="max-w-6xl mx-auto py-10">
+    <div class="max-w-6xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
 
-        <div class="flex items-center justify-between mb-6">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
 
             <h1 class="text-2xl font-semibold">
                 Клиенты
@@ -18,8 +18,9 @@
         </div>
 
         <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <div class="overflow-x-auto">
 
-            <table class="w-full">
+                <table class="w-full">
 
                 <thead class="bg-gray-100">
                 <tr>
@@ -68,6 +69,7 @@
 
             </table>
 
+            </div>
         </div>
 
         <div class="mt-6">

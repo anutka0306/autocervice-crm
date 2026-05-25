@@ -27,32 +27,6 @@
                 </header>
             @endisset
 
-                @if(auth()->check())
-                    <nav class="bg-white border-b border-gray-200">
-                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <div class="flex gap-6 h-12 items-center text-sm">
-
-                                <a href="{{ route('dashboard') }}" class="text-gray-700">
-                                    Календарь
-                                </a>
-
-                                @if(auth()->user()->role === 'admin')
-                                    <a href="{{ route('users.index') }}" class="text-gray-700">
-                                        Мастера
-                                    </a>
-                                @endif
-                                <a href="{{ route('clients.index') }}" class="text-gray-700">
-                                    Клиенты
-                                </a>
-                                <a href="{{ route('bookings.index') }}" class="text-gray-700">
-                                    Записи
-                                </a>
-
-
-                            </div>
-                        </div>
-                    </nav>
-            @endif
 
             <!-- Page Content -->
             <main>
