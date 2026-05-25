@@ -1,11 +1,11 @@
 <x-app-layout>
 
-    <div class="max-w-6xl mx-auto py-10">
+    <div class="max-w-6xl mx-auto py-6 sm:py-10 px-4 sm:px-6 lg:px-8">
 
-        <div class="grid grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
             {{-- LEFT: FORM --}}
-            <div class="col-span-2 bg-white rounded-2xl shadow p-6">
+            <div class="lg:col-span-2 bg-white rounded-2xl shadow p-4 sm:p-6">
 
                 <h1 class="text-2xl font-semibold mb-6">
                     Редактировать запись
@@ -25,7 +25,7 @@
             </div>
 
             {{-- RIGHT: SIDEBAR --}}
-            <div class="bg-white rounded-2xl shadow p-6">
+            <div class="bg-white rounded-2xl shadow p-4 sm:p-6">
 
                 @include('bookings._sidebar', [
                     'booking' => $booking
