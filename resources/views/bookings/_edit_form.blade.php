@@ -64,13 +64,15 @@
             class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
         >
                 <option selected disabled>Выберите статус</option>
-            @foreach($statuses as $key => $status)
+            @foreach($statuses as $status)
+
                 <option
-                    value="{{ $key }}"
-                    @selected(old('status', $booking->status?->value) == $key)
+                    value="{{ $status->value }}"
+                    @selected(old('status', $booking->status?->value ?? '') === $status->value)
                 >
-                    {{ $status }}
+                {{ $status->label() }}
                 </option>
+
             @endforeach
 
         </select>
@@ -151,6 +153,22 @@
 
         </select>
 
+    </div>
+
+    <div>
+        <label
+            for="complaint"
+            class="block mb-2 text-sm font-medium text-gray-700"
+        >
+            Жалобы
+        </label>
+
+        <textarea
+            name="complaint"
+            id="complaint"
+            rows="5"
+            class="w-full rounded-lg border-gray-300 focus:border-black focus:ring-black"
+        >{{ old('complaint', $booking->complaint) }}</textarea>
     </div>
 
 </div>

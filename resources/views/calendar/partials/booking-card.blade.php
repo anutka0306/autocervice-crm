@@ -25,12 +25,10 @@ data-booking-id="{{ $booking->id }}"
 >
 
     {{-- CLIENT --}}
-    <div class="text-sm font-semibold">
-        {{ $booking->client->name ?? '' }}
+    <div class="text-xs font-semibold">
+        {{ $booking->client->name ?? '' }} - {{ $booking->client->phone ?? '' }}
     </div>
-    <div class="text-sm font-semibold">
-        {{ $booking->client->phone ?? '' }}
-    </div>
+
 
     {{-- TIME --}}
     <div class="text-xs text-gray-700 mt-1">
@@ -45,7 +43,36 @@ data-booking-id="{{ $booking->id }}"
         {{ $booking->car_model }}
     </div>
 
-    <div class="absolute top-2 right-2 text-xs text-black font-semibold">
+    {{-- COMPLAINTS --}}
+    <div class="relative group">
+
+        <div class="flex gap-1 items-start mt-1">
+            <span class="text-amber-500">⚠</span>
+
+            <p class="text-xs leading-4 text-gray-700">
+                {{ Str::limit($booking->complaint, 60) }}
+            </p>
+        </div>
+
+        <div class="absolute z-50
+                opacity-0 invisible
+                group-hover:opacity-100
+                group-hover:visible
+                transition
+                duration-200
+
+                bg-black text-white text-xs
+                rounded-lg px-3 py-2
+                w-64 break-words shadow-lg
+
+                bottom-full left-0 mb-2">
+
+            {{ $booking->complaint }}
+        </div>
+
+    </div>
+
+    <div class="absolute top-0 right-1 text-xs text-black font-semibold">
         {{ $booking->status->label() }}
     </div>
 

@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Services\BookingService;
+use App\Enums\BookingStatuses;
 
 class BookingController extends Controller
 {
@@ -38,11 +39,7 @@ class BookingController extends Controller
             ->orderBy('name')
             ->get();
 
-        $statuses = [
-            'new' => 'Новый клиент',
-            'in_progress' => 'В работе',
-            'done' => 'Готова',
-        ];
+        $statuses = BookingStatuses::cases();
 
         return view('bookings.create', compact(
             'clients',
@@ -67,6 +64,7 @@ class BookingController extends Controller
             'car_model' => ['nullable', 'string'],
             'start_at' => ['required', 'date'],
             'duration' => ['required', 'integer', 'min:15'],
+            'complaint' => ['nullable', 'string'],
         ]);
 
         try {
@@ -109,11 +107,7 @@ class BookingController extends Controller
             ->orderBy('name')
             ->get();
 
-        $statuses = [
-            'new' => 'Новый клиент',
-            'in_progress' => 'В работе',
-            'done' => 'Готова',
-        ];
+        $statuses = BookingStatuses::cases();
 
         return view('bookings.edit', compact(
             'booking',
@@ -142,6 +136,7 @@ class BookingController extends Controller
             'start_at' => ['required', 'date'],
 
             'duration' => ['required', 'integer', 'min:15'],
+            'complaint' => ['nullable', 'string'],
         ]);
 
         $startAt = Carbon::parse($validated['start_at']);
@@ -187,6 +182,7 @@ class BookingController extends Controller
 
             'start_at' => $startAt,
             'end_at' => $endAt,
+            'complaint' => $validated['complaint'],
 
             'updated_by' => auth()->id(),
         ]);

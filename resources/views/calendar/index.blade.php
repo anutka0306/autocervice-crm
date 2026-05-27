@@ -2,7 +2,7 @@
     $calendarStartHour = 8;
     $calendarEndHour = 20;
 
-    $hourHeight = 100;
+    $hourHeight = 90;
     $minuteHeight = $hourHeight / 60;
 
     $timelineHeight =
@@ -139,7 +139,7 @@
 
                                             $height =
                                                 max(
-                                                    110,
+                                                    90,
                                                     $durationMinutes * $minuteHeight
                                                 );
 

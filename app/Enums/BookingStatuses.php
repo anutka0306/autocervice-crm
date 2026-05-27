@@ -5,32 +5,37 @@ enum BookingStatuses: string
 {
     case New = 'new';
     case InProgress = 'in_progress';
-    case Done = 'done';
+    case Late = 'late';
 
     public function label(): string
 {
     return match($this) {
-        self::New => 'Новая',
-        self::InProgress => 'В процессе',
-        self::Done => 'Готова',
+        self::New => 'Авто в записи',
+        self::InProgress => 'Авто в работе',
+        self::Late => 'Авто опаздывает по записи',
     };
 }
 
     public function color(): string
 {
     return match($this) {
-        self::New => 'background-color: #f1f5f9; color: #475569;',
-        self::InProgress => 'background-color: #fef3c7; color: #b45309;',
-        self::Done => 'background-color: #dcfce7; color: #166534;',
+        self::New => 'background-color: #facc15; color: #713f12;',
+
+        self::InProgress => 'background-color: #4ade80; color: #14532d;',
+
+        self::Late => 'background-color: #f87171; color: #7f1d1d;',
+
     };
 }
 
     public function bgColor(): string
 {
     return match($this) {
-        self::New => 'bg-gray-200 text-gray-800',
-        self::InProgress => 'bg-orange-200 text-orange-800',
-        self::Done => 'bg-green-200 text-green-800',
+        self::New => 'bg-yellow-300 text-yellow-900 border border-yellow-400',
+
+        self::InProgress => 'bg-green-300 text-green-900 border border-green-400',
+
+        self::Late => 'bg-red-300 text-red-900 border border-red-400',
     };
 }
 

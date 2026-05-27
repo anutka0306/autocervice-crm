@@ -4,6 +4,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\BookingNoteController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -48,5 +49,13 @@ Route::get(
     '/bookings/{booking}/sidebar',
     [BookingController::class, 'sidebar']
 )->name('bookings.sidebar');
+
+Route::resource('general-notes', NoteController::class)
+    ->middleware(['auth'])
+    ->only(['store', 'destroy']);
+
+Route::get('/general-notes', [NoteController::class, 'index'])
+    ->middleware(['auth'])
+    ->name('general-notes.index');
 
 require __DIR__.'/auth.php';

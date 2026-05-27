@@ -21,6 +21,7 @@ class Booking extends Model
         'car_model',
         'start_at',
         'end_at',
+        'complaint',
     ];
 
     protected $casts = [

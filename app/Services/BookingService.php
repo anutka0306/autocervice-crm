@@ -34,6 +34,7 @@ class BookingService
                 'car_model' => $data['car_model'] ?? null,
                 'start_at' => $startAt,
                 'end_at' => $endAt,
+                'complaint' => $data['complaint'],
                 'created_by' => auth()->id(),
                 'updated_by' => auth()->id(),
             ]);
