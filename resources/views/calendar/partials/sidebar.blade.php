@@ -33,7 +33,7 @@
 
             <textarea
                 name="text"
-                rows="3"
+                rows="7"
                 placeholder="Добавить заметку..."
                 class="w-full rounded-xl border-gray-300 text-sm"
             ></textarea>

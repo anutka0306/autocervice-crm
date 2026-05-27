@@ -10,7 +10,7 @@
                     <span>{{ $note->user->name }}</span> <span>{{ $note->created_at }}</span>
                 </div>
 
-                <p class="text-sm mt-1 break-words">
+                <p class="text-sm mt-1 break-words" style="word-break: break-word;">
                     {{ $note->text }}
                 </p>
 
