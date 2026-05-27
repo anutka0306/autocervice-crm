@@ -26,7 +26,7 @@ data-booking-id="{{ $booking->id }}"
 
     {{-- CLIENT --}}
     <div class="text-sm font-semibold">
-        {{ $booking->client->name ?? '' }} {{ $booking->client->lastname ?? '' }}
+        {{ $booking->client->name ?? '' }}
     </div>
     <div class="text-sm font-semibold">
         {{ $booking->client->phone ?? '' }}

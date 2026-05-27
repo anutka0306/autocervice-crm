@@ -25,7 +25,6 @@
                 <thead class="bg-gray-100">
                 <tr>
                     <th class="text-left p-4">Имя</th>
-                    <th class="text-left p-4">Фамилия</th>
                     <th class="text-left p-4">Телефон</th>
                     <th class="p-4"></th>
                 </tr>
@@ -41,9 +40,6 @@
                             {{ $client->name }}
                         </td>
 
-                        <td class="p-4">
-                            {{ $client->lastname }}
-                        </td>
 
                         <td class="p-4">
                             {{ $client->phone }}

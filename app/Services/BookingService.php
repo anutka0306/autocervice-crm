@@ -53,7 +53,6 @@ class BookingService
 
         if (
             empty($data['client_name']) ||
-            empty($data['client_lastname']) ||
             empty($data['client_phone'])
         ) {
             throw new \Exception('Заполните данные клиента');
@@ -63,7 +62,6 @@ class BookingService
             ['phone' => $data['client_phone']],
             [
                 'name' => $data['client_name'],
-                'lastname' => $data['client_lastname'],
             ]
         );
     }

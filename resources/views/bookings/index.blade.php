@@ -41,7 +41,7 @@
                     <tr class="border-t">
 
                         <td class="p-4">
-                            {{ $booking->client->name }} {{ $booking->client->lastname }}
+                            {{ $booking->client->name }}
                         </td>
 
                         <td class="p-4">
@@ -49,7 +49,7 @@
                         </td>
 
                         <td class="p-4">
-                            {{ $booking->master->name }} {{ $booking->master->lastname }}
+                            {{ $booking->master->name }}
                         </td>
 
                         <td class="p-4">

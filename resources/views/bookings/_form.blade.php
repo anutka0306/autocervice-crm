@@ -66,13 +66,6 @@
                 value="{{ old('client_name') }}"
             >
 
-            <input
-                type="text"
-                name="client_lastname"
-                placeholder="Фамилия клиента"
-                class="w-full rounded-lg border-gray-300"
-                value="{{ old('client_lastname') }}"
-            >
 
             <input
                 type="text"

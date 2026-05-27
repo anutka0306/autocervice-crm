@@ -19,24 +19,6 @@
         @enderror
     </div>
 
-    <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700">
-            Фамилия
-        </label>
-
-        <input
-            type="text"
-            name="lastname"
-            value="{{ old('name', $client->lastname ?? '') }}"
-            class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-        >
-
-        @error('lastname')
-        <div class="text-red-500 text-sm mt-1">
-            {{ $message }}
-        </div>
-        @enderror
-    </div>
 
     <div>
         <label class="block mb-2 text-sm font-medium text-gray-700">

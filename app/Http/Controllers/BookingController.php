@@ -59,7 +59,6 @@ class BookingController extends Controller
         $validated = $request->validate([
             'client_id' => ['nullable', 'exists:clients,id'],
             'client_name' => ['nullable', 'string'],
-            'client_lastname' => ['nullable', 'string'],
             'client_phone' => ['nullable', 'string'],
 
             'master_id' => ['required', 'exists:users,id'],

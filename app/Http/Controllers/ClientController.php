@@ -33,8 +33,7 @@ class ClientController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required'],
-            'lastname' => ['required'],
-            'phone' => ['required', 'digits:11', 'unique:clients,phone'],
+            'phone' => ['required', 'max:12', 'unique:clients,phone'],
         ]);
 
         $validated['phone'] = $this->normalizePhone($request->phone);
@@ -71,10 +70,9 @@ class ClientController extends Controller
             'name' => ['required'],
             'phone' => [
                 'required',
-                'digits:11',
+                'max:12',
                 'unique:clients,phone,' . $client->id,
             ],
-            'lastname' => ['nullable'],
         ]);
 
         $validated['phone'] = $this->normalizePhone($request->phone);
