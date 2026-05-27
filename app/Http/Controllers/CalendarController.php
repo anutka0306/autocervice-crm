@@ -24,6 +24,7 @@ class CalendarController extends Controller
 
         $masters = User::query()
             ->where('role', 'master')
+            ->where('is_active', 1)
             ->get();
 
         $bookings = Booking::with(['client', 'master'])
