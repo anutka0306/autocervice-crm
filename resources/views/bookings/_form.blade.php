@@ -161,22 +161,12 @@
             class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
         >
 
-            @foreach([
-                30 => '30 минут',
-                60 => '1 час',
-                90 => '1.5 часа',
-                120 => '2 часа',
-                180 => '3 часа',
-            ] as $value => $label)
 
-                <option
-                    value="{{ $value }}"
-                    @selected(old('duration', $booking->duration ?? 60) == $value)
-                >
-                {{ $label }}
-                </option>
-
-            @endforeach
+                @foreach(config('durations') as $value => $label)
+                    <option value="{{ $value }}">
+                        {{ $label }}
+                    </option>
+                @endforeach
 
         </select>
 
